@@ -8,8 +8,19 @@ export default class Table extends Component {
         this.fetchUnits()
     }
 
+    handleInputs(e) {
+        const { value, name } = e.target
+        this.setState({
+            [name]: value
+        })
+    }
+
+    calculateUnits() {
+
+    }
+
     async fetchUnits() {
-        await fetch('',{})
+        await fetch('', {})
     }
 
     render() {
@@ -19,16 +30,23 @@ export default class Table extends Component {
                 <div className="col-lg-8">
                     <div className="row">
                         <div className="col-lg-3">
-                            <input name="food" type="text" className="input input-group"/>
+                            <input name="food" type="text" className="input input-group rounded" placeholder="Pozywienie" onChange={e => this.handleInputs(e)} />
                         </div>
                         <div className="col-lg-3">
-                            <input name="gold" type="text" className="input input-group"/>
+                            <input name="gold" type="text" className="input input-group rounded" placeholder="Złoto" onChange={e => this.handleInputs(e)} />
                         </div>
                         <div className="col-lg-3">
-                            <input name="wood" type="text" className="input input-group"/>
+                            <input name="wood" type="text" className="input input-group rounded" placeholder="Drewno" onChange={e => this.handleInputs(e)} />
                         </div>
                         <div className="col-lg-3">
-                            <input name="stone" type="text" className="input input-group"/>
+                            <input name="stone" type="text" className="input input-group rounded" placeholder="Kamień" onChange={e => this.handleInputs(e)} />
+                        </div>
+                    </div>
+                    <div className="row my-4">
+                        <div className="col-lg-12">
+                            <button className="btn input-group" style={{ justifyContent: "center" }}>
+                                Calculate units
+                            </button>
                         </div>
                     </div>
                 </div>
